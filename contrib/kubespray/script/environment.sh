@@ -30,8 +30,8 @@ echo "Install necessray packages"
 echo "Install Python3 and pip"
 sudo apt-get -y update
 sudo apt-get -y install software-properties-common python3 python3-dev
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-sudo python3 get-pip.py
+sudo apt-get -y install python3-pip
+sudo python3 -m pip install pip==20.3.4
 
 echo "Install paramiko"
 sudo pip3 install paramiko
@@ -44,4 +44,4 @@ sudo pip3 install -r ${HOME}/pai-deploy/kubespray/requirements.txt
 
 echo "Clone OpenPAI source code from github to ${HOME}/pai-deploy"
 sudo rm -rf ${HOME}/pai-deploy/pai
-git clone -b ${OPENPAI_BRANCH_NAME} https://github.com/microsoft/pai.git ${HOME}/pai-deploy/pai
+git clone -b ${OPENPAI_BRANCH_NAME} https://github.com/Allen-labs/pai.git ${HOME}/pai-deploy/pai
